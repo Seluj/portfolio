@@ -1,6 +1,5 @@
-import './style.css'
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.querySelector('.nav-menu');
 
@@ -17,19 +16,56 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const href = this.getAttribute('href');
+            const target = document.querySelector(href);
             if (target) {
-                const offset = 80;
+                const navbar = document.querySelector('.navbar');
+                const offset = (navbar && navbar.offsetHeight) ? navbar.offsetHeight : 80;
                 const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
+                // Update URL hash without jumping
+                if (history.pushState) {
+                    history.pushState(null, '', href);
+                } else {
+                    window.location.hash = href;
+                }
             }
         });
     });
 
+    // Adjust initial scroll for hash links on page load to account for fixed navbar
+    if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+            // Defer to ensure layout is ready
+            setTimeout(() => {
+                const navbar = document.querySelector('.navbar');
+                const offset = (navbar && navbar.offsetHeight) ? navbar.offsetHeight : 80;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({top: targetPosition, behavior: 'auto'});
+            }, 0);
+        }
+    }
+
     const navbar = document.querySelector('.navbar');
+
+    // Expose navbar height to CSS for scroll-margin-top fallback
+    if (navbar) {
+        const setNavbarHeightVar = () => {
+            document.documentElement.style.setProperty('--navbar-height', navbar.offsetHeight + 'px');
+        };
+        setNavbarHeightVar();
+        // Update on resize/orientation changes
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(setNavbarHeightVar, 100);
+        });
+    }
+
     let lastScroll = 0;
 
     window.addEventListener('scroll', () => {

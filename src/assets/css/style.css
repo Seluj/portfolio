@@ -284,6 +284,11 @@ body {
     padding: 2rem 0;
 }
 
+/* Ensure in-page anchor scrolling stops below the fixed navbar */
+.hero, .section {
+    scroll-margin-top: var(--navbar-height, 80px);
+}
+
 .section-alt {
     background-color: var(--alt-bg);
 }

@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="assets/js/main.js"></script>
     <?php
     $seo = [
             'title' => 'Jules Ferlin - Ingénieur Informatique',
@@ -91,7 +93,7 @@
                 </div>
                 <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>Saint Quentin en Yvelines, France</span>
+                    <span>Saint-Quentin-en-Yvelines, France</span>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-envelope"></i>
@@ -375,7 +377,5 @@
         </div>
     </div>
 </footer>
-
-<script type="module" src="assets/js/main.js"></script>
 </body>
 </html>
