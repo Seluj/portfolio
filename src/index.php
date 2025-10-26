@@ -95,7 +95,7 @@
                 </div>
                 <div class="info-item">
                     <i class="fas fa-envelope"></i>
-                    <a href="mailto:Jules.ferlin@gmail.com">Jules.ferlin@gmail.com</a>
+                    <a href="mailto:jules.ferlin@gmail.com">jules.ferlin@gmail.com</a>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-phone"></i>
@@ -134,7 +134,7 @@
                 <h3>DevOps & Tests</h3>
                 <ul>
                     <li>Git, CI/CD basics, Docker</li>
-                    <li>PowerShell, SQL, tests fonctionnels (UiPath)</li>
+                    <li>PowerShell, SQL, UiPath (tests fonctionnels)</li>
                 </ul>
             </div>
             <div class="skill-category">
@@ -167,7 +167,6 @@
                 <div class="skill-icon"><i class="fas fa-language"></i></div>
                 <h3>Langues</h3>
                 <ul>
-                    <li>Français (Courant)</li>
                     <li>Anglais (B2)</li>
                 </ul>
             </div>
@@ -327,7 +326,7 @@
                     <i class="fas fa-envelope"></i>
                     <div>
                         <h4>Email</h4>
-                        <a href="mailto:Jules.ferlin@gmail.com">Jules.ferlin@gmail.com</a>
+                        <a href="mailto:jules.ferlin@gmail.com">jules.ferlin@gmail.com</a>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -369,7 +368,7 @@
     <div class="container">
         <p>&copy; 2025 Jules Ferlin. Tous droits réservés.</p>
         <div class="footer-links">
-            <a href="mailto:Jules.ferlin@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="mailto:jules.ferlin@gmail.com"><i class="fas fa-envelope"></i></a>
             <a href="tel:+33781136262"><i class="fas fa-phone"></i></a>
             <a href="https://github.com/Seluj" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/jules-ferlin-0865b6122/" target="_blank"><i class="fab fa-linkedin"></i></a>
