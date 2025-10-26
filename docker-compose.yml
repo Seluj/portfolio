@@ -1,6 +1,6 @@
 services:
   nginx:
-    image: nginx:latest
+    image: nginx:1.29.2
     container_name: nginx-portfolio
     ports:
       - "8091:80"
@@ -11,7 +11,7 @@ services:
       - php
 
   php:
-    image: php:8.2-fpm
+    image: php:8.3.27-alpine3.21
     container_name: php-portfolio
     volumes:
       - ./src:/var/www/html
