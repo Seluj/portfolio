@@ -329,6 +329,11 @@ body {
     color: var(--text-gray);
 }
 
+/* Le reset global supprime les marges : on réespace les paragraphes du profil. */
+.about-text p + p {
+    margin-top: 1rem;
+}
+
 .about-info {
     display: flex;
     flex-direction: column;

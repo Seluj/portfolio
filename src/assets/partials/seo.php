@@ -15,8 +15,8 @@
 $defaults = [
     'site_name'   => 'Jules FERLIN',
     'title'       => 'Jules FERLIN - Portfolio',
-    'description' => "Portfolio de Jules FERLIN, développeur web et passionné par les technologies modernes. Découvrez mes projets, compétences et expériences dans le domaine du développement web.",
-    'image'       => 'image/logo.png', // fallback; we will choose a best-effort existing image
+    'description' => "Portfolio de Jules FERLIN, ingénieur en informatique diplômé de l'UTBM et président de NexSIM. Découvrez mes projets, compétences et expériences.",
+    'image'       => 'assets/img/profile.jpeg', // fallback; we will choose a best-effort existing image
     'robots'      => 'index,follow',
     'type'        => 'website',
 ];
@@ -43,11 +43,8 @@ $relativeImage = $config['image'];
 if (!file_exists($relativeImage) || is_dir($relativeImage)) {
     // Try common candidates in project
     $candidates = [
-        'image/lusim.png',
-        'image/logo.png',
-        'image/logo-dark.svg',
-        'image/logo.svg',
-        'image/schema-ecosysteme.png',
+        'assets/img/profile.jpeg',
+        'assets/img/placeholder-profile.svg',
     ];
     foreach ($candidates as $c) {
         if (file_exists($c)) { $relativeImage = $c; break; }
@@ -57,7 +54,7 @@ $ogImage = rtrim($baseUrl, '/') . '/' . ltrim($relativeImage, '/');
 
 // Build the <title> combining page title + site name if needed
 $title = $config['title'];
-if (stripos($title, 'Nexsim') === false) {
+if (stripos($title, $defaults['site_name']) === false && stripos($title, 'Jules Ferlin') === false) {
     $title .= ' | ' . $defaults['site_name'];
 }
 
@@ -114,22 +111,42 @@ $ogLocale = 'fr_FR';
     <!-- PWA/UX small enhancements -->
     <meta name="theme-color" content="#0b2a4a">
 
-    <!-- JSON-LD: Organization and WebSite -->
+    <!-- JSON-LD: Person and WebSite -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Nexsim",
+      "@type": "Person",
+      "name": "Jules Ferlin",
       "url": "<?php echo $baseUrl; ?>",
-      "logo": "<?php echo rtrim($baseUrl, '/'); ?>/image/logo.svg",
-      "sameAs": []
+      "image": "<?php echo htmlspecialchars($ogImage, ENT_QUOTES, 'UTF-8'); ?>",
+      "jobTitle": "Président",
+      "email": "mailto:jules.ferlin@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Belfort",
+        "addressCountry": "FR"
+      },
+      "worksFor": {
+        "@type": "Organization",
+        "name": "NexSIM",
+        "url": "https://www.nexsim.fr"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Université de technologie de Belfort-Montbéliard"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/jules-ferlin-0865b6122/",
+        "https://github.com/Seluj",
+        "https://www.nexsim.fr"
+      ]
     }
     </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "Nexsim",
+      "name": "<?php echo $defaults['site_name']; ?>",
       "url": "<?php echo $baseUrl; ?>"
     }
     </script>

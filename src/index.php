@@ -1,3 +1,7 @@
+<?php
+// Âge calculé à partir de la date de naissance : évite une valeur en dur à maintenir.
+$age = (new DateTimeImmutable('2002-02-15'))->diff(new DateTimeImmutable('now'))->y;
+?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -14,7 +18,9 @@
     <script src="assets/js/main.js"></script>
     <?php
     $seo = [
-            'title' => 'Jules Ferlin - Ingénieur Informatique',
+            'title' => 'Jules Ferlin - Ingénieur Informatique & Président de NexSIM',
+            'description' => "Portfolio de Jules Ferlin, ingénieur en informatique diplômé de l'UTBM, titulaire du Master Entrepreneuriat Technologique et Innovation et président de NexSIM, startup de simulation médicale basée à Belfort.",
+            'image' => 'assets/img/profile.jpeg',
             'path' => '/'
     ];
     include 'assets/partials/seo.php';
@@ -52,9 +58,10 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1 class="hero-title">Jules Ferlin</h1>
-                <h2 class="hero-subtitle">Ingénieur en Informatique (UTBM 2025) et Étudiant en Master ETI</h2>
-                <p class="hero-description">Passionné par l'informatique, l'innovation et la modélisation 3D, je suis
-                    actuellement en alternance en Master Entrepreneuriat Technologique et Innovation.</p>
+                <h2 class="hero-subtitle">Ingénieur en Informatique (UTBM) &amp; Président de NexSIM</h2>
+                <p class="hero-description">Diplômé ingénieur de l'UTBM en 2025 et titulaire du Master Entrepreneuriat
+                    Technologique et Innovation en 2026, je dirige aujourd'hui NexSIM, une startup de simulation
+                    médicale née de la rencontre entre l'UTBM et l'Hôpital Nord Franche-Comté.</p>
                 <div class="hero-buttons">
                     <a href="#projets" class="btn btn-primary">Découvrir mes projets</a>
                     <a href="#contact" class="btn btn-secondary">Me contacter</a>
@@ -80,20 +87,28 @@
         <h2 class="section-title">Profil</h2>
         <div class="about-content">
             <div class="about-text">
-                <p>À 23 ans, je suis un ingénieur diplômé de l'Université de Technologie de Belfort Montbéliard,
-                    spécialisé en informatique. Je complète actuellement mon cursus par un Master Entrepreneuriat,
-                    Technologique et Innovation. Je suis reconnu pour ma capacité à prendre des initiatives et mon
-                    leadership. Je suis passionné par les nouvelles technologies, le développement et les réalisations
-                    3D.</p>
+                <p>À <?php echo $age; ?> ans, je suis ingénieur diplômé de l'Université de Technologie de Belfort
+                    Montbéliard, spécialisé en informatique, et titulaire du Master Entrepreneuriat, Technologie et
+                    Innovation de la même école.</p>
+                <p>Je suis aujourd'hui président de NexSIM, société par actions simplifiée basée à Belfort qui conçoit
+                    LuSIM, un poumon pédagogique hybride destiné à la formation à la ventilation mécanique. Au
+                    quotidien, je fais le lien entre la technique — développement mobile, modélisation et impression
+                    3D — et le pilotage d'une équipe pluridisciplinaire réunissant ingénieurs et soignants.</p>
+                <p>Je suis reconnu pour ma capacité à prendre des initiatives et mon leadership, et je reste passionné
+                    par les nouvelles technologies, le développement et les réalisations 3D.</p>
             </div>
             <div class="about-info">
                 <div class="info-item">
                     <i class="fas fa-birthday-cake"></i>
-                    <span>23 ans</span>
+                    <span><?php echo $age; ?> ans</span>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>Saint-Quentin-en-Yvelines, France</span>
+                    <span>Belfort, France</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-briefcase"></i>
+                    <a href="https://www.nexsim.fr" target="_blank" rel="noopener">Président de NexSIM</a>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-envelope"></i>
@@ -128,7 +143,8 @@
                 <ul>
                     <li>Angular, HTML, CSS</li>
                     <li>Spring Boot (APIs REST)</li>
-                    <li>Node / JavaScript</li>
+                    <li>Node / TypeScript</li>
+                    <li>PHP</li>
                 </ul>
             </div>
             <div class="skill-category">
@@ -166,6 +182,16 @@
                 </ul>
             </div>
             <div class="skill-category">
+                <div class="skill-icon"><i class="fas fa-rocket"></i></div>
+                <h3>Entrepreneuriat & Direction</h3>
+                <ul>
+                    <li>Direction d'une SAS (NexSIM)</li>
+                    <li>Pilotage d'une équipe pluridisciplinaire</li>
+                    <li>Stratégie produit & relations partenaires</li>
+                    <li>Recherche de financements (Bpifrance, investisseurs régionaux)</li>
+                </ul>
+            </div>
+            <div class="skill-category">
                 <div class="skill-icon"><i class="fas fa-language"></i></div>
                 <h3>Langues</h3>
                 <ul>
@@ -184,10 +210,26 @@
             <div class="timeline-item">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
-                    <span class="timeline-date">Septembre 2025 - Aujourd'hui</span>
-                    <h3>Alternance</h3>
+                    <span class="timeline-date">2026 - Aujourd'hui</span>
+                    <h3>Président</h3>
+                    <h4>NexSIM — Belfort</h4>
+                    <p>Direction de la startup de simulation médicale issue de la collaboration entre l'UTBM et
+                        l'Hôpital Nord Franche-Comté : stratégie, produit, financement et développement technique.
+                        Je pilote une équipe pluridisciplinaire (ingénieurs, médecin anesthésiste-réanimateur,
+                        expert en ventilation, enseignant-chercheur IA/VR) autour de LuSIM, le poumon pédagogique
+                        hybride, et je développe NexControl, l'application mobile Flutter de pilotage du simulateur.
+                        <br>Lauréat du Prix 2026 des Entrep' Franche-Comté.
+                        <br><a href="https://www.nexsim.fr" target="_blank" rel="noopener">www.nexsim.fr</a></p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">Septembre 2025 - Août 2026</span>
+                    <h3>Alternance — Ingénieur étude et développement</h3>
                     <h4>Isara Technologie</h4>
-                    <p>Développement technique et commercial de solutions logicielles, en lien avec le Master ETI</p>
+                    <p>Développement technique et commercial de solutions logicielles, en alternance dans le cadre du
+                        Master Entrepreneuriat Technologique et Innovation.</p>
                 </div>
             </div>
             <div class="timeline-item">
@@ -212,7 +254,7 @@
             <div class="timeline-item">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
-                    <span class="timeline-date">Décembre 2022 - Aujourd'hui</span>
+                    <span class="timeline-date">Depuis décembre 2022</span>
                     <h3>Responsable Informatique Associatif</h3>
                     <h4>Bureau des Sports — UTBM</h4>
                     <p>Développement d'outils pour la gestion des adhésions (bot Discord, export CSV pour Yapla) et formation des prochains responsables. <br><a href="https://yapla.selutech.fr" target="_blank">Exportateur CSV pour Yapla</a></p>
@@ -229,30 +271,49 @@
         <div class="projects-grid">
             <div class="project-card">
                 <div class="project-header">
-                    <i class="fas fa-laptop-code"></i>
+                    <i class="fas fa-lungs"></i>
                 </div>
-                <h3>Projet Nexsim</h3>
-                <p>Collaboration avec Lusim sur un simulateur et des modules pédagogiques. Responsable des modèles 3D, impressions, et du développement de l'application mobile (Flutter) de contrôle.</p>
-                <p>Stack : Flutter, modélisation 3D, impressions FDM.</p>
-                <a href="http://nexsim.selutech.fr" target="_blank" class="project-link">
-                    nexsim.selutech.fr <i class="fas fa-external-link-alt"></i>
+                <h3>LuSIM — le poumon pédagogique</h3>
+                <p>Simulateur hybride de formation à la ventilation mécanique : trois modules mécaniques réglables
+                    (compliance, résistance, trigger) qui reproduisent les principales pathologies respiratoires
+                    (SDRA, BPCO, asthme), pour former soignants et étudiants sans aucun risque patient.</p>
+                <p>Mon rôle : direction du projet, modélisation et impression 3D des pièces, intégration
+                    matériel / logiciel.</p>
+                <a href="https://www.nexsim.fr" target="_blank" rel="noopener" class="project-link">
+                    www.nexsim.fr <i class="fas fa-external-link-alt"></i>
                 </a>
             </div>
 
             <div class="project-card">
                 <div class="project-header">
-                    <i class="fas fa-brain"></i>
+                    <i class="fas fa-mobile-alt"></i>
                 </div>
-                <h3>Lusim (Lung Simulation)</h3>
-                <p>Dispositif pédagogique de formation à la ventilation mécanique : développement matériel et logiciel, scénarios de formation et interface de contrôle.</p>
+                <h3>NexControl</h3>
+                <p>Application mobile de pilotage de LuSIM : réglage sans fil des paramètres du simulateur,
+                    bibliothèque de pathologies préconfigurées et gestion des scénarios de formation en temps réel.</p>
+                <p>Stack : Flutter (Provider, architecture MVVM), communication sans fil avec le simulateur.</p>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <i class="fas fa-notes-medical"></i>
+                </div>
+                <h3>Application patient / soignant — HNFC</h3>
+                <p>Étude, conception et déploiement d'une application mobile et web pour l'Hôpital Nord Franche-Comté,
+                    en tant que chef de projet et développeur.</p>
+                <p>Stack : Spring Boot (APIs REST), Flutter.</p>
             </div>
 
             <div class="project-card">
                 <div class="project-header">
                     <i class="fas fa-users-cog"></i>
                 </div>
-                <h3>Responsable Informatique Associatif</h3>
-                <p>Bot Discord pour gestion d'adhésions, outils d'export et processus d'onboarding pour le BDS de l'UTBM.</p>
+                <h3>Outils associatifs — BDS UTBM</h3>
+                <p>Bot Discord de gestion des adhésions, exportateur CSV vers Yapla et processus d'onboarding des
+                    prochains responsables informatiques.</p>
+                <a href="https://yapla.selutech.fr" target="_blank" rel="noopener" class="project-link">
+                    yapla.selutech.fr <i class="fas fa-external-link-alt"></i>
+                </a>
             </div>
         </div>
     </div>
@@ -264,8 +325,9 @@
         <h2 class="section-title">Ma Formation</h2>
         <div class="education-grid">
             <div class="education-card">
-                <div class="education-year">2025 - Aujourd'hui</div>
-                <h3>Master Entreprenariat, Technologie et Innovation</h3>
+                <div class="education-year">2025 - 2026</div>
+                <h3>Master Entrepreneuriat, Technologie et Innovation</h3>
+                <p class="education-subtitle">Obtenu — réalisé en alternance</p>
                 <p class="education-school"><i class="fas fa-university"></i> Université de technologie de Belfort
                     Montbéliard</p>
             </div>
@@ -368,12 +430,13 @@
 <!-- Footer -->
 <footer class="footer">
     <div class="container">
-        <p>&copy; 2025 Jules Ferlin. Tous droits réservés.</p>
+        <p>&copy; <?php echo date('Y'); ?> Jules Ferlin. Tous droits réservés.</p>
         <div class="footer-links">
             <a href="mailto:jules.ferlin@gmail.com"><i class="fas fa-envelope"></i></a>
             <a href="tel:+33781136262"><i class="fas fa-phone"></i></a>
             <a href="https://github.com/Seluj" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/jules-ferlin-0865b6122/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/jules-ferlin-0865b6122/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.nexsim.fr" target="_blank" rel="noopener" title="NexSIM"><i class="fas fa-lungs"></i></a>
         </div>
     </div>
 </footer>

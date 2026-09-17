@@ -1,0 +1,22 @@
+# Environnement de développement : l'image est construite localement et le
+# contenu de ./src est monté en direct, donc une modification est visible au
+# rechargement de la page, sans reconstruction.
+#
+#   docker compose -f docker-compose.dev.yml up
+#   → http://localhost:8091
+
+services:
+  portfolio:
+    build:
+      context: .
+    container_name: jules-ferlin-portfolio-dev
+    ports:
+      - "8091:8080"
+    volumes:
+      - ./src:/var/www/html:ro
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--spider", "http://127.0.0.1:8080/healthz"]
+      interval: 10s
+      timeout: 3s
+      start_period: 5s
+      retries: 3
